@@ -5,6 +5,14 @@ $(document).ready(function(){
       event.preventDefault();
       getArtists();
     });
+
+    $('.js-image-result').on('click', function(){
+      event.preventDefault();
+      console.log('objeto target:');
+      var name = $(event.target).closest('li').find('.artist_name').text();
+      getAlbums(name);
+    });
+
 });
 
 function getArtists(){
@@ -22,19 +30,21 @@ function showArtists (response){
 
   var artistsArray = response.artists.items;
   console.log(artistsArray);
+  $('.js-image-result').empty();
+  $('.js-album-result').empty();
   artistsArray.forEach(function(artist){
-    var html = "<li>" + artist.name + " </li>";
-    $('.js-search-result').append(html);
     var img = artist.images[0].url;
-    $('.js-image-result').append("<img src =" + img + ">");
+    $('.js-image-result').append();
+    var html = "<li>" +"<img src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
+    $('.js-search-result').append(html);
   });
 }
 
-
-function getAlbums(){
+function getAlbums(name){
+  // $('.js-album-result').empty();
   $.ajax({
     type:"GET",
-    url:"https://api.spotify.com/v1/search?type=album&query="+$('#name').val(),
+    url:"https://api.spotify.com/v1/search?type=album&query="+name,
     success: showAlbums,
     error: handleError
   });
@@ -46,7 +56,9 @@ function showAlbums (response){
 
   var albumsArray = response.albums.items;
   console.log(albumsArray);
-  artistsArray.forEach(function(album){
+  console.log("albumsArray!");
+  $('.js-album-result').empty();
+  albumsArray.forEach(function(album){
     var html = "<li>" + album.name + "</li>";
     $('.js-album-result').append(html);
   });

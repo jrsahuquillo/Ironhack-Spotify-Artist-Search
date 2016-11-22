@@ -1,9 +1,11 @@
-.container {
+.container, .left-column, .right-column {
   text-align: center;
-
 }
 
 img {
   height: 100px;
+}
 
+ul li {
+  text-decoration: none;
 }

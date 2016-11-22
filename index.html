@@ -9,22 +9,36 @@
 </head>
 <body>
   <div class="container">
-  <h1>Search Spotify Artist</h1>
-  <br>
-  <form method="get">
-    <div>
+    <h1>Search Spotify Artist</h1>
+    <br>
+    <form method="get">
+
         <label for="name">Name:*</label>
         <input type="text" id="name" required/>
-    </div><br>
-    <div class="submit-button">
+        <br>
+        <div class="submit-button">
+        <br>
         <button type="submit">Search artist</button>
-    </div>
-</form>
-</div>
-<h2>Search result</h2>
-  <ul class="js-search-result js-image-result">
+        </div>
+    </form>
+  </div>
 
-  </ul>
+  <div class="container-fluid">
+    <div class="row">
+    <div class = "col-md-4 left-column">
+      <h2>Search result</h2>
+        <ul class="js-search-result js-image-result"></ul>
+    </div>
+    <div class="col-md-4 right-column">
+      <h2>Artist´s Albums</h2>
+      <ul class="js-album-result"></ul>
+    </div>
+    <div class="col-md-4 right-column">
+      <h2>Artist´s Albums</h2>
+      <ul class="js-album-result"></ul>
+    </div>
+  </div>
+  </div>
 </body>
 
 </html>

@@ -4,6 +4,8 @@
   <title>Spotify Artist Search</title>
   <script src="jquery-2.1.4.js"></script>
   <script type="text/javascript" src="app.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -25,20 +27,41 @@
 
   <div class="container-fluid">
     <div class="row">
-    <div class = "col-md-4 left-column">
+    <div class = "col-md-6 left-column">
       <h2>Search result</h2>
         <ul class="js-search-result js-image-result"></ul>
     </div>
-    <div class="col-md-4 right-column">
-      <h2>Artist´s Albums</h2>
-      <ul class="js-album-result"></ul>
-    </div>
-    <div class="col-md-4 right-column">
+    <div class="col-md-6 right-column">
       <h2>Artist´s Albums</h2>
       <ul class="js-album-result"></ul>
     </div>
   </div>
   </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h2 class="modal-title" id="myModalLabel">Album Tracks</h2>
+        </div>
+        <div class="modal-body">
+          <div class="album-tracks">
+
+            <ul class="js-tracks-result"></ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>

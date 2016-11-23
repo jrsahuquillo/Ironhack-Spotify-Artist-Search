@@ -13,17 +13,17 @@
   <div class="container">
     <h1>Search Spotify Artist</h1>
     <br>
-    <form method="get">
+    <form class="form-group" method="get">
 
-        <label for="name">Name:*</label>
-        <input type="text" id="name" required/>
+        <label id="name-label" for="name">Enter name:*</label>
+        <input class="form-control" type="text" id="name" required/>
         <br>
         <div class="submit-button">
         <br>
-        <button type="submit">Search artist</button>
+        <button class = "btn btn-success" type="submit">Search artist</button>
         </div>
     </form>
-  </div>
+
 
   <div class="container-fluid">
     <div class="row">
@@ -35,6 +35,7 @@
       <h2>Artist´s Albums</h2>
       <ul class="js-album-result"></ul>
     </div>
+  </div>
   </div>
   </div>
 
@@ -53,10 +54,6 @@
 
             <ul class="js-tracks-result"></ul>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

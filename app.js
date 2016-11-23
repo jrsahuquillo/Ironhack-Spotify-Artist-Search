@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  // GET ARTISTS DATA
+  // GET DATA OnClick
     $('form').on('submit', function(){
       event.preventDefault();
       getArtists();
@@ -12,10 +12,13 @@ $(document).ready(function(){
     });
 
     $('.js-album-result').on('click', function(){
-      console.log('objeto target:');
       var name = $(event.target).closest('li').find('.album_name').text();
-      console.log('hola' + name);
       $('#myModal').modal('show');
+      getTracks(name);
+    });
+    $('.track_name').on('click', function(){
+      var name = $(event.target).closest('li').find('.album_name').text();
+      console.log("test");
       getTracks(name);
     });
 
@@ -31,7 +34,7 @@ function getArtists(){
 }
 
 function showArtists (response){
-  console.log("Success!");
+
   console.log(response);
 
   var artistsArray = response.artists.items;
@@ -41,7 +44,7 @@ function showArtists (response){
   artistsArray.forEach(function(artist){
     var img = artist.images[0].url;
     $('.js-image-result').append();
-    var html = "<li>" +"<img src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
+    var html = "<li>" +"<img class='album_picture' src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
     $('.js-search-result').append(html);
   });
 }
@@ -57,15 +60,13 @@ function getAlbums(name){
 }
 
 function showAlbums (response){
-  console.log("Success!");
   console.log(response);
 
   var albumsArray = response.albums.items;
   console.log(albumsArray);
-  console.log("albumsArray!");
   $('.js-album-result').empty();
   albumsArray.forEach(function(album){
-    var html = "<li>" + "<span class='album_name'>" + album.name + "</span>" + " </li>";
+    var html = "<li>" + "<a class='album_name'>" + album.name + "</a>" + " </li>";
     $('.js-album-result').append(html);
   });
 }
@@ -78,18 +79,17 @@ function getTracks(name){
     success: showTracks,
     error: handleError
   });
+
 }
 
 function showTracks (response){
-  console.log("Success!");
   console.log(response);
 
   var tracksArray = response.tracks.items;
   console.log(tracksArray);
-  console.log("tracksArray!");
   $('.js-tracks-result').empty();
   tracksArray.forEach(function(track){
-    var html = "<li>" + "<span class='track_name'>" + track.name + "</span>" + " </li>";
+    var html = "<li>" + '<a href=" '+ track.preview_url +' " target="_blank" class="track_name">' + track.name + "</a>" + " </li>";
     $('.js-tracks-result').append(html);
   });
 }

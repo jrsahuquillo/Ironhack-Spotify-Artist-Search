@@ -50,7 +50,7 @@ ul li {
   padding-left: 30px;
 }
 
-.js-album-result li:hover a, .js-tracks-result li:hover a{
+.js-album-result li:hover a, .js-tracks-result li:hover {
   color: #84BD00;
 }
 
@@ -58,7 +58,7 @@ ul li {
   color: white;
 }
 
-.js-search-result li:hover, .artist_name:hover, .js-album-result li:hover {
+.js-search-result li:hover, .artist_name:hover, .js-album-result li:hover, li.preview-song:hover {
   cursor: pointer;
   background: rgba(255,255,255,.4);
   opacity: .8;

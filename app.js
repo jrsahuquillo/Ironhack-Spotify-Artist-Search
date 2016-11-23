@@ -89,8 +89,16 @@ function showTracks (response){
   console.log(tracksArray);
   $('.js-tracks-result').empty();
   tracksArray.forEach(function(track){
-    var html = "<li>" + '<a href=" '+ track.preview_url +' " target="_blank" class="track_name">' + track.name + "</a>" + " </li>";
+    var html = "<li class='preview-song' id='"+ track.preview_url +"'>'" + track.name + " </li>";
     $('.js-tracks-result').append(html);
+  });
+  $('.preview-song').on('click',function(event){
+    
+    var url = event.currentTarget.id;
+    var audioPlayer = document.createElement('audio');
+    audioPlayer.src = url;
+    document.body.appendChild(audioPlayer);
+    audioPlayer.play();
   });
 }
 

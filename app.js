@@ -16,11 +16,11 @@ $(document).ready(function(){
       $('#myModal').modal('show');
       getTracks(name);
     });
-    $('.track_name').on('click', function(){
-      var name = $(event.target).closest('li').find('.album_name').text();
-      console.log("test");
-      getTracks(name);
-    });
+    // $('.track_name').on('click', function(){
+    //   var name = $(event.target).closest('li').find('.album_name').text();
+    //   console.log("test");
+    //   getTracks(name);
+    // });
 
 });
 
@@ -42,10 +42,16 @@ function showArtists (response){
   $('.js-image-result').empty();
   $('.js-album-result').empty();
   artistsArray.forEach(function(artist){
-    var img = artist.images[0].url;
-    $('.js-image-result').append();
-    var html = "<li>" +"<img class='album_picture' src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
-    $('.js-search-result').append(html);
+
+    if (artist.images.length !== 0) {
+      var img = artist.images[0].url;
+      var html = "<li>" +"<img class='album_picture' src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
+      $('.js-search-result').append(html);
+    } else {
+      img = "http://www.zdrojownia.pl/img/noimage.png";
+      html = "<li>" +"<img class='album_picture' src =" + img + " />" + "<span class='artist_name'>" + artist.name + "</span>" + " </li><br>";
+      $('.js-search-result').append(html);
+  }
   });
 }
 
@@ -93,7 +99,7 @@ function showTracks (response){
     $('.js-tracks-result').append(html);
   });
   $('.preview-song').on('click',function(event){
-    
+
     var url = event.currentTarget.id;
     var audioPlayer = document.createElement('audio');
     audioPlayer.src = url;

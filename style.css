@@ -1,5 +1,10 @@
 body {
-  background-color: #1C1C1F;
+  background-color: #222327;
+}
+
+.logo-spotify {
+  height: 200px;
+  width: 200px;
 }
 
 .modal-body, .modal-header {
